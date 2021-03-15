@@ -1,0 +1,23 @@
+## create a virtual environment
+python3 -m venv .venv
+
+
+powershell -ExecutionPolicy Bypass -File D:\Tech\ToDo\.venv\Scripts\Activate.ps1
+pip3 install flask
+pip3 install flask-sqlalchemy
+
+touch application.py
+
+export FLASK_APP=application.py
+export FLASK_ENV=development
+
+flask run
+
+>>>python
+>>>from application import db
+>>>db.createAll()   
+>>>from application import Drink
+>>> drink =Drink(name="Cola",description="Normal Cola Flavour")
+>>> db.session.add(drink) 
+>>> db.session.commit  
+>>> Drink.query.all()
